@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#div_tong {
+			width: 100%;
+			height: 200px;
+			float: left;
+		}	
+		#div_trai {
+			width: 7%;
+			height: 200px;
+			float: left;
+		}
+		#div_giua {
+			width: 86%;
+			height: 200px;
+			float: left;
+		}
+		#div_phai {
+			width: 7%;
+			height: 200px;
+			float: left;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="Demo.css">
+</head>
+<body>
+	<div id="div_tong">
+		<div id="div_trai">
+
+		</div>
+		<div id="div_giua">
+			<form>
+				<span class="gach_chan" style="font-weight: bold; font-size: 50px;"> Tính ngày theo tháng trong năm </span>
+				<br>
+				<br>
+				Tháng : <input type="number" placeholder="nhập tháng" id="input_thang">
+				Năm : <input type="number" placeholder="nhập năm" id="input_nam">
+				<button type="button" onclick="in_ra()">
+					Kiểm tra 
+				</button>
+			</form>
+			<div id="ket_qua"></div>
+			<script type="text/javascript">
+				function in_ra(){
+				let thang = parseInt(document.getElementById('input_thang').value);
+				let nam = document.getElementById('input_nam').value;
+				let ngay;
+				switch (thang){
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+				case 12:
+					ngay = 31;
+					break;
+				case 4:		
+				case 6:		
+				case 9:		
+				case 11:
+					ngay = 30;
+					break;
+				case 2:	
+					if (nam % 400 == 0 || (nam % 4 == 0 && nam % 100 !=0)) {
+						ngay = 29;
+					}	
+					else {
+						ngay = 28;
+					}
+					break;
+				default:
+					ngay = 'sai';
+					break;
+				}
+				document.getElementById('ket_qua').innerHTML = 'tháng này có ' + ngay + ' ngày';
+			}
+			</script>
+		</div>
+		<div id="div_phai">
+
+		</div>
+	</div>
+</body>
+</html>
